@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="row justify-content-center pt-5">
+    <div class="col-sm-6 p-3 rounded shadow">
+        <h1>Login Form</h1>
+        <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="loginEmail" name="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    #email="ngModel" ngModel>
+                <div *ngIf="!email.valid && email.touched">
+                    <p>Enter valid Email</p>
+                </div>
+            </div>
+            <div class="forms-group mt-2">
+                <label for="password">Password</label>
+                <input type="password" id="loginPassword" name="password" class="form-control" required #password="ngModel"
+                    minlength="5" ngModel>
+                <div *ngIf="!password.valid && password.touched">
+                    <p>Please enter valid Password!</p>
+                    <p>Password shold be minimum 5 character</p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary col-sm-4 mt-3" [disabled]="!myForm.valid">Submit</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-5" *ngIf="isSubmitted">
+            <p>Email: {{ email.value }}</p>
+            <p>Password: {{ password.value }}</p>
+        </div>
+    </div>
+</div>
