@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     console.log('Button is working :>> ', form.valid, form.value);
     if(form.valid) {
       this.isSubmitted = !this.isSubmitted;
-      this.router.navigate(['dashboard'])
+      this.router.navigate(['dashboard']);
     }
   }
 }
