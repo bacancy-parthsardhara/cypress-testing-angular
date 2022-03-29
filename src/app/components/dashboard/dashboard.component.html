@@ -1,1 +1,51 @@
-<p>dashboard works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmit()">
+                <h1>Add User Form</h1>
+                <div class="form-group my-2">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
+                        formControlName="firstName">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
+                        formControlName="lastName">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="number" class="form-control" id="mobileNumber" placeholder="Enter mobile number"
+                        formControlName="mobileNumber">
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!userDetailsForm.valid">Submit</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <div class="d-flex justify-content-between py-2">
+                <h1>User List</h1>
+                <button class="btn btn-danger" (click)="clearUserList()">Remove all</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Mobile number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let user of userList; let i=index">
+                        <tr>
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{user?.firstName}}</td>
+                            <td>{{user?.lastName}}</td>
+                            <td>{{user?.mobileNumber}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

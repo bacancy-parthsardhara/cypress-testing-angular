@@ -40,7 +40,6 @@ export class RegistrationComponent implements OnInit {
 
   public onSubmit() {
     if (this.myform.valid) {
-      console.log("MyForm value :::", this.myform.value);
       this.router.navigate(['dashboard'])
     }
   }

@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   public onSubmit(form: NgForm) {
-    console.log('Button is working :>> ', form.valid, form.value);
     if(form.valid) {
       this.isSubmitted = !this.isSubmitted;
       this.router.navigate(['dashboard']);
