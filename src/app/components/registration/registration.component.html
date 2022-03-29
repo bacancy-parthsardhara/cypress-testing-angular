@@ -1,17 +1,17 @@
 <div class="row justify-content-center pt-5">
     <div class="col-sm-6 p-3 rounded shadow">
-        <h1>Registration Form</h1>
+        <h1 id="registrationFormTitle">Registration Form</h1>
         <form [formGroup]="myform" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label>First Name</label>
-                <input type="text" class="form-control" formControlName="name"
+                <input type="text" class="form-control" id="registrationFormNameInput" formControlName="name"
                     [ngClass]="{ 'has-danger': f.name.invalid && f.name.dirty, 'has-success': f.name.valid && f.name.dirty }">
                 <div class="text-danger" *ngIf="f.name.invalid && f.name.touched">First Name is invalid.</div>
             </div>
 
             <div class="form-group">
                 <label>Mobile no.</label>
-                <input type="text" class="form-control" formControlName="mobileNo"
+                <input type="text" class="form-control" id="registrationFormMobileNoInput" formControlName="mobileNo"
                     [ngClass]="{ 'has-danger': f.mobileNo.invalid && f.mobileNo.dirty, 'has-success': f.mobileNo.valid && f.mobileNo.dirty }">
                 <div *ngIf="f.mobileNo.errors && f.mobileNo.touched">
                     <div class="text-danger" *ngIf="f.mobileNo.errors.required"> Mobile no is required.</div>
@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" formControlName="email"
+                <input type="email" class="form-control" id="registrationFormEmailInput" formControlName="email"
                     [ngClass]="{ 'has-danger': f.email.invalid && f.email.dirty, 'has-success': f.email.valid && f.email.dirty }">
                 <div *ngIf="f.email.errors && f.email.touched">
                     <div class="text-danger" *ngIf="f.email">Email is required.</div>
@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" formControlName="password"
+                <input type="password" class="form-control" id="registrationFormPasswordInput" formControlName="password"
                     [ngClass]="{ 'has-danger': f.password.invalid && f.password.dirty, 'has-success': f.password.valid && f.password.dirty }">
                 <div class="text-danger" *ngIf="f.password.invalid && f.password.touched"> Password is invalid. </div>
                 <div class="text-danger" *ngIf="f.password.invalid && f.password.errors?.minlength"> Minlength is 6. </div>
@@ -40,7 +40,7 @@
 
             <div class="form-group">
                 <label>Language</label>
-                <select class="form-control" formControlName="language"
+                <select class="form-control" id="registrationFormLanguageSelect" formControlName="language"
                     [ngClass]="{ 'has-danger': f.language.invalid && f.language.dirty, 'has-success': f.language.valid && f.language.dirty }">
                     <option value="">Please select a language</option>
                     <option *ngFor="let lang of langs" [value]="lang">
@@ -50,11 +50,11 @@
             </div>
 
             <div class="form-group">
-                <input type="radio" formControlName="gender" value="male"> Male
-                <input type="radio" formControlName="gender" value="female"> Female
+                <input type="radio" id="registrationFormGenderMaleRadio" formControlName="gender" value="male"> Male
+                <input type="radio" id="registrationFormGenderFemaleRadio" formControlName="gender" value="female"> Female
             </div>
 
-            <button class="btn btn-primary">Submit</button>
+            <button id="registrationFormSubmitButton" class="btn btn-primary">Submit</button>
 
         </form>
     </div>
