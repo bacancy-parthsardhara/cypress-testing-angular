@@ -9,17 +9,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('myForm') myForm!: NgForm;
-  
+
   public isSubmitted = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public onSubmit(form: NgForm) {
-    if(form.valid) {
-      this.isSubmitted = !this.isSubmitted;
-      this.router.navigate(['dashboard']);
-    }
+    this.isSubmitted = !this.isSubmitted;
+    // Used setTimeout for some purpose of cypress testing.
+    setTimeout(() => {
+      if (form.valid) {
+        this.router.navigate(['dashboard']);
+      }
+    }, 5000);
   }
 }
