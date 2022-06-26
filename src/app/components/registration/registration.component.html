@@ -24,8 +24,8 @@
                 <input type="email" class="form-control" id="registrationFormEmailInput" formControlName="email"
                     [ngClass]="{ 'has-danger': f.email.invalid && f.email.dirty, 'has-success': f.email.valid && f.email.dirty }">
                 <div *ngIf="f.email.errors && f.email.touched">
-                    <div class="text-danger" *ngIf="f.email">Email is required.</div>
-                    <div class="text-danger" *ngIf="f.email.invalid">Email is invalid</div>
+                    <div id="registrationFormEmailInputErrorRequired" class="text-danger" *ngIf="f.email">Email is required.</div>
+                    <div id="registrationFormEmailInputErrorInvalid" class="text-danger" *ngIf="f.email.invalid">Email is invalid</div>
                 </div>
 
             </div>
